@@ -9,10 +9,18 @@
 #import <Foundation/Foundation.h>
 @import ARKit;
 
+typedef enum : NSUInteger {
+    INPUT_TYPE_USE_PLANES,
+    INPUT_TYPE_USE_AIR,
+    INPUT_TYPE_USE_ANY,
+    INPUT_TYPE_NONE
+} GamificationInputType;
+
+
 @interface GamificationManager : NSObject
 
 + (GamificationManager*)sharedManager;
 
 
--(void) handleUpdate:(id<SCNSceneRenderer>)renderer withNodes:(NSDictionary<NSUUID*, NSDictionary*>*) nodes;
+-(GamificationInputType) handleUpdate;
 @end

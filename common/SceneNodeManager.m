@@ -13,8 +13,15 @@ const int32_t FEATURE_POINTS_COUNT_TRESHOLD = 50;
 
 const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
 
+@interface NodeData : NSObject
+@property int gamified;
+
+@end
+
 @implementation SceneNodeManager  {
     NSMutableDictionary<NSUUID*, NSDictionary*>* nodes;
+    NSMutableDictionary<NSUUID*, NodeData*>* nodeData;
+    
     NSMutableDictionary<NSNumber*, NSValue*>* featurePoints;
     NSMutableDictionary<NSNumber*, NSValue*>* featurePointsBuffer;
     
@@ -46,6 +53,8 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
 - (id)init {
     if (self = [super init]) {
         nodes = [[NSMutableDictionary alloc] init];
+        nodeData = [[NSMutableDictionary alloc] init];
+        
         featurePoints = [[NSMutableDictionary alloc] init];
         featurePointsBuffer = [[NSMutableDictionary alloc] init];
         
@@ -86,8 +95,7 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
     [nodes setObject:group forKey:anchor.identifier];
     NSLog(@"didAddNode");
     
-    SCNScene* duck = [SCNScene sceneNamed:@"duck.scn" inDirectory:@"models.scnassets/duck" options:nil];
-    [node addChildNode:[duck rootNode]];
+    
     
     if(debugMode){
         
@@ -99,7 +107,10 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
         lastUpdateAtTime = time;
     }
     if(lastUpdateAtTime + SCENE_UPDATE_INTERVAL < time) {
-        [[GamificationManager sharedManager] handleUpdate:nodes];
+        GamificationInputType inputType = [[GamificationManager sharedManager] handleUpdate];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self handleGamificationInput:inputType];
+        });
     }
 }
 
@@ -112,6 +123,61 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
 
 
 #pragma mark - private methods
+
+
+-(void) handleGamificationInput:(GamificationInputType) inputType{
+    switch (inputType) {
+        case INPUT_TYPE_USE_PLANES:
+            [self addGamificationInput];
+            break;
+        case INPUT_TYPE_USE_AIR:
+            [self addGamificationInputForVector:SCNVector3Zero];
+        default:
+            break;
+    }
+}
+
+-(void) addGamificationInput{
+    SCNVector3 vector = SCNVector3Zero;
+    //find node
+    for (NodeData* data in nodeData) {
+        if(data.gamified == 0){
+            NSUUID* uuid = [nodeData allKeysForObject:data][0];
+            ARPlaneAnchor* planeAnchor = (ARPlaneAnchor*)[[nodes objectForKey:uuid] objectForKey:@"planeAnchor"];
+            
+            vector_float3 center = [planeAnchor center];
+            vector = SCNVector3FromFloat3(center);
+            break;
+        }
+    }
+    [self addGamificationInputForVector:vector];
+}
+
+-(void) addGamificationInputForVector:(SCNVector3)vector{
+    if(SCNVector3EqualToVector3(SCNVector3Zero, vector)){
+        //find random location
+        SCNVector3 newVector = SCNVector3Make(rand()*3, rand()*3, (rand()*5) + 1);
+        [self addScene:[self getSceneModelForGamification] forVector:newVector];
+    } else {
+        [self addScene:[self getSceneModelForGamification] forVector:vector];
+    }
+}
+
+
+-(void) addScene:(SCNScene*) scene forVector:(SCNVector3)vector{
+    SCNNode* node = [[SCNNode alloc] init];
+    [node addChildNode:[scene rootNode]];
+    node.position = vector;
+    [sceneView.scene.rootNode addChildNode:node];
+}
+
+-(SCNScene*) getSceneModelForGamification{
+    SCNScene* duck = [SCNScene sceneNamed:@"duck.scn" inDirectory:@"models.scnassets/duck" options:nil];
+    return duck;
+}
+
+
+#pragma mark - Feature points
 
 -(void) handleFeaturePoints: (ARPointCloud*) rawFeaturePoints{
     int64_t count = rawFeaturePoints.count;
@@ -208,61 +274,5 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
     }
 }
 
-/*
- extension ARPlaneAnchor {
- 
- @discardableResult
- func addPlaneNode(on node: SCNNode, geometry: SCNGeometry, contents: Any) -> SCNNode {
- guard let material = geometry.materials.first else { fatalError() }
- 
- if let program = contents as? SCNProgram {
- material.program = program
- } else {
- material.diffuse.contents = contents
- }
- 
- let planeNode = SCNNode(geometry: geometry)
- 
- DispatchQueue.main.async(execute: {
- node.addChildNode(planeNode)
- })
- 
- return planeNode
- }
- 
- func addPlaneNode(on node: SCNNode, contents: Any) {
- let geometry = SCNPlane(width: CGFloat(extent.x), height: CGFloat(extent.z))
- let planeNode = addPlaneNode(on: node, geometry: geometry, contents: contents)
- planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
- }
- 
- func findPlaneNode(on node: SCNNode) -> SCNNode? {
- for childNode in node.childNodes {
- if childNode.geometry as? SCNPlane != nil {
- return childNode
- }
- }
- return nil
- }
- 
- func updatePlaneNode(on node: SCNNode) {
- DispatchQueue.main.async(execute: {
- guard let plane = self.findPlaneNode(on: node)?.geometry as? SCNPlane else { return }
- guard !PlaneSizeEqualToExtent(plane: plane, extent: self.extent) else { return }
- 
- plane.width = CGFloat(self.extent.x)
- plane.height = CGFloat(self.extent.z)
- })
- }
- }
- 
- fileprivate func PlaneSizeEqualToExtent(plane: SCNPlane, extent: vector_float3) -> Bool {
- if plane.width != CGFloat(extent.x) || plane.height != CGFloat(extent.z) {
- return false
- } else {
- return true
- }
- }
- */
 
 @end

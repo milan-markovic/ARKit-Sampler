@@ -24,12 +24,7 @@ const int32_t GAMIFICATION_INPUT_LOCATION_TRESHOLD = 5;
 //location radius
 const int32_t GAMIFICATION_RADIUS = 20; //m
 
-typedef enum : NSUInteger {
-    INPUT_TYPE_USE_PLANES,
-    INPUT_TYPE_USE_FLOAT,
-    INPUT_TYPE_USE_ANY,
-    INPUT_TYPE_NONE
-} GamificationInputType;
+
 
 @implementation GamificationManager {
     
@@ -60,21 +55,11 @@ typedef enum : NSUInteger {
 
 #pragma mark - Public methods
 
--(void) handleUpdate:(id<SCNSceneRenderer>)renderer withNodes:(NSDictionary<NSUUID*, NSDictionary*>*) nodes {
-    ARSCNView* sceneView = (ARSCNView*) renderer;
+-(GamificationInputType) handleUpdate{
 
     GamificationInputType inputType = [self getInputEventType];
     
-    switch (inputType) {
-        case INPUT_TYPE_USE_PLANES:
-            [self addGamificationInput:sceneView forNodes:nodes];
-            break;
-        case INPUT_TYPE_USE_FLOAT:
-            [self addGamificationInput:sceneView forVector:SCNVector3Zero];
-            
-        default:
-            break;
-    }
+    return inputType;
     
 }
 
@@ -101,7 +86,7 @@ typedef enum : NSUInteger {
     if(timeSinceLastGamificationEvent < GAMIFICATION_INPUT_TIME_TRESHOLD_1){
         type = INPUT_TYPE_USE_PLANES;
     } else if(timeSinceLastGamificationEvent < GAMIFICATION_INPUT_TIME_TRESHOLD_2){
-        type = INPUT_TYPE_USE_FLOAT;
+        type = INPUT_TYPE_USE_AIR;
     } else if(timeSinceLastGamificationEvent < GAMIFICATION_INPUT_TIME_TRESHOLD_3){
         type = INPUT_TYPE_USE_ANY;
     } else {
