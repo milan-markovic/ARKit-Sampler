@@ -12,7 +12,6 @@ class VirtualObjectNode: SCNNode {
 
     override init() {
         super.init()
-        loadDuck()
     }
     
     required init?(coder aDecoder: NSCoder) {

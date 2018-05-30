@@ -11,14 +11,10 @@ import ARKit
 class ARFaceNode: SCNNode {
 
     init(device: MTLDevice, color: UIColor = .white) {
-        
-        let program = SCNProgram()
-        program.vertexFunctionName = "scnVertexShader"
-        program.fragmentFunctionName = "scnFragmentShader"
-
         let faceGeometry = ARSCNFaceGeometry(device: device)
         if let material = faceGeometry?.firstMaterial {
-            material.program = program
+            material.diffuse.contents = color
+            material.lightingModel = .physicallyBased
         }
         super.init()
         self.geometry = faceGeometry
@@ -31,16 +27,5 @@ class ARFaceNode: SCNNode {
     func update(with faceAnchor: ARFaceAnchor) {
         guard let faceGeometry = geometry as? ARSCNFaceGeometry else {return}
         faceGeometry.update(from: faceAnchor.geometry)
-    }
-}
-
-extension SCNNode {
-    
-    func findFaceNode() -> ARFaceNode? {
-        for childNode in childNodes {
-            guard let faceNode = childNode as? ARFaceNode else { continue }
-            return faceNode
-        }
-        return nil
     }
 }

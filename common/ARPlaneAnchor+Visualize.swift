@@ -44,7 +44,7 @@ extension ARPlaneAnchor {
         return nil
     }
 
-    @available(iOS 11.3, *)
+    /*@available(iOS 11.3, *)
     func findPlaneGeometryNode(on node: SCNNode) -> SCNNode? {
         for childNode in node.childNodes {
             if childNode.geometry as? ARSCNPlaneGeometry != nil {
@@ -60,7 +60,7 @@ extension ARPlaneAnchor {
             guard let planeGeometry = self.findPlaneGeometryNode(on: node)?.geometry as? ARSCNPlaneGeometry else { return }
             planeGeometry.update(from: self.geometry)
         })
-    }
+    }*/
 
     func updatePlaneNode(on node: SCNNode) {
         DispatchQueue.main.async(execute: {

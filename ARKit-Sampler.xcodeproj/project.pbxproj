@@ -7,24 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D9B4A132080CB6500D7E683 /* models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9B4A122080CB6500D7E683 /* models.scnassets */; };
+		3D9B4A16208DFFD700D7E683 /* GamificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B4A15208DFFD700D7E683 /* GamificationManager.m */; };
+		3D9B4A19208E061500D7E683 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B4A18208E061500D7E683 /* LocationManager.m */; };
+		3DE2A83A207FA8AE00C3E6CE /* SceneNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2A839207FA8AE00C3E6CE /* SceneNodeManager.m */; };
 		4F5AA0984FD0409AEB73AC4E /* Pods_ARKit_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6FA6DDC58BD46FBC840EC1 /* Pods_ARKit_Sampler.framework */; };
 		8A086D941F71941C00951ABF /* RootViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D931F71941C00951ABF /* RootViewCell.swift */; };
-		8A086D971F71968C00951ABF /* Simple.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A086D961F71968C00951ABF /* Simple.storyboard */; };
-		8A086D991F7196A300951ABF /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D981F7196A300951ABF /* SimpleViewController.swift */; };
-		8A086D9B1F7197F700951ABF /* models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A086D9A1F7197F600951ABF /* models.scnassets */; };
-		8A086DA11F7198D900951ABF /* ARPlaneAnchor+Visualize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D9D1F7198D900951ABF /* ARPlaneAnchor+Visualize.swift */; };
 		8A086DA21F7198D900951ABF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D9E1F7198D900951ABF /* Common.swift */; };
 		8A086DA31F7198D900951ABF /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D9F1F7198D900951ABF /* SceneKitUtils.swift */; };
-		8A086DA41F7198D900951ABF /* TrackingState+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086DA01F7198D900951ABF /* TrackingState+Description.swift */; };
-		8A086DA71F719C2600951ABF /* PlaneDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086DA51F719C2600951ABF /* PlaneDetectionViewController.swift */; };
-		8A086DA81F719C2600951ABF /* PlaneDetection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A086DA61F719C2600951ABF /* PlaneDetection.storyboard */; };
 		8A086DAB1F71A08900951ABF /* VirtualObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086DA91F71A08900951ABF /* VirtualObjectViewController.swift */; };
 		8A086DAC1F71A08900951ABF /* VirtualObject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A086DAA1F71A08900951ABF /* VirtualObject.storyboard */; };
-		8A430D312020D11E00B646D3 /* ARSCNProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A430D302020D11E00B646D3 /* ARSCNProgramViewController.swift */; };
-		8A430D332020D13200B646D3 /* ARSCNProgram.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A430D322020D13200B646D3 /* ARSCNProgram.storyboard */; };
-		8A430D352020D15400B646D3 /* ARSCNProgramShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8A430D342020D15400B646D3 /* ARSCNProgramShader.metal */; };
-		8A783E542078D44B00B3A2D0 /* ShapedPlaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A783E532078D44B00B3A2D0 /* ShapedPlaneViewController.swift */; };
-		8A783E562078D46F00B3A2D0 /* ShapedPlane.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A783E552078D46F00B3A2D0 /* ShapedPlane.storyboard */; };
 		8A8921CA1F718E040087C2B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921C91F718E040087C2B0 /* AppDelegate.swift */; };
 		8A8921CC1F718E040087C2B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921CB1F718E040087C2B0 /* ViewController.swift */; };
 		8A8921CF1F718E040087C2B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8921CD1F718E040087C2B0 /* Main.storyboard */; };
@@ -32,50 +24,26 @@
 		8A8921D41F718E040087C2B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8921D21F718E040087C2B0 /* LaunchScreen.storyboard */; };
 		8A8921DC1F7190010087C2B0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921DB1F7190010087C2B0 /* RootViewController.swift */; };
 		8A8921DE1F7191370087C2B0 /* SampleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921DD1F7191370087C2B0 /* SampleDataSource.swift */; };
-		8A9C49BF1F71ACAF00C8CB69 /* ARInteraction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C49BC1F71ACAF00C8CB69 /* ARInteraction.storyboard */; };
-		8A9C49C01F71ACAF00C8CB69 /* ARInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49BD1F71ACAF00C8CB69 /* ARInteractionViewController.swift */; };
 		8A9C49C31F71B12D00C8CB69 /* VirtualObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49C21F71B12D00C8CB69 /* VirtualObjectNode.swift */; };
-		8A9C49C71F71B99900C8CB69 /* ARMeasure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C49C51F71B99900C8CB69 /* ARMeasure.storyboard */; };
-		8A9C49C81F71B99900C8CB69 /* ARMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49C61F71B99900C8CB69 /* ARMeasureViewController.swift */; };
-		8A9C49CD1F71BF0500C8CB69 /* ARDrawing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C49CA1F71BF0500C8CB69 /* ARDrawing.storyboard */; };
-		8A9C49CE1F71BF0500C8CB69 /* ARDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49CB1F71BF0500C8CB69 /* ARDrawingViewController.swift */; };
-		8A9C49CF1F71BF0500C8CB69 /* DynamicGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49CC1F71BF0500C8CB69 /* DynamicGeometry.swift */; };
-		8A9C49D41F71C5D900C8CB69 /* ARObjectDetection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C49D11F71C5D900C8CB69 /* ARObjectDetection.storyboard */; };
-		8A9C49D51F71C5D900C8CB69 /* ARObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49D21F71C5D900C8CB69 /* ARObjectDetectionViewController.swift */; };
-		8A9C49D61F71C5D900C8CB69 /* TagNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49D31F71C5D900C8CB69 /* TagNode.swift */; };
-		8A9C49D91F71C65B00C8CB69 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49D81F71C65B00C8CB69 /* Inceptionv3.mlmodel */; };
-		8A9C49E11F71CD0D00C8CB69 /* ARMetal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C49DB1F71CD0D00C8CB69 /* ARMetal.storyboard */; };
-		8A9C49E21F71CD0D00C8CB69 /* ARMetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49DC1F71CD0D00C8CB69 /* ARMetalViewController.swift */; };
-		8A9C49E51F71CD0D00C8CB69 /* MetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49E01F71CD0D00C8CB69 /* MetalImageView.swift */; };
-		8A9C49E71F71CEC600C8CB69 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49E61F71CEC600C8CB69 /* Shaders.metal */; };
-		8AAECE141F7850D600C20BF9 /* ARMetalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAECE131F7850D600C20BF9 /* ARMetalImageView.swift */; };
-		8ADD3E791FF16CE500D988BD /* ARFaceSimple.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD3E771FF16CE500D988BD /* ARFaceSimple.storyboard */; };
-		8ADD3E7A1FF16CE500D988BD /* ARFaceSimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3E781FF16CE500D988BD /* ARFaceSimpleViewController.swift */; };
-		8ADD3E7E1FF175AC00D988BD /* ARFaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADD3E7D1FF175AC00D988BD /* ARFaceNode.swift */; };
-		8AEDCA3E201F7BE200C56AF7 /* VerticalPlanesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEDCA3D201F7BE100C56AF7 /* VerticalPlanesViewController.swift */; };
-		8AEDCA40201F7BFE00C56AF7 /* VerticalPlanes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AEDCA3F201F7BFE00C56AF7 /* VerticalPlanes.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F13E8C5860DBEF1BD063CF8 /* Pods-ARKit-Sampler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKit-Sampler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARKit-Sampler/Pods-ARKit-Sampler.debug.xcconfig"; sourceTree = "<group>"; };
+		3D9B4A122080CB6500D7E683 /* models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = models.scnassets; sourceTree = "<group>"; };
+		3D9B4A14208DFFD700D7E683 /* GamificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationManager.h; sourceTree = "<group>"; };
+		3D9B4A15208DFFD700D7E683 /* GamificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamificationManager.m; sourceTree = "<group>"; };
+		3D9B4A17208E061500D7E683 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		3D9B4A18208E061500D7E683 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		3D9B4A1A208E0E6200D7E683 /* GamificationTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationTracker.h; sourceTree = "<group>"; };
+		3DE2A833207E5CE200C3E6CE /* ARKit-Sampler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKit-Sampler-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DE2A838207FA8AE00C3E6CE /* SceneNodeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneNodeManager.h; sourceTree = "<group>"; };
+		3DE2A839207FA8AE00C3E6CE /* SceneNodeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneNodeManager.m; sourceTree = "<group>"; };
 		7B6FA6DDC58BD46FBC840EC1 /* Pods_ARKit_Sampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARKit_Sampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A086D931F71941C00951ABF /* RootViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewCell.swift; sourceTree = "<group>"; };
-		8A086D961F71968C00951ABF /* Simple.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Simple.storyboard; sourceTree = "<group>"; };
-		8A086D981F7196A300951ABF /* SimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewController.swift; sourceTree = "<group>"; };
-		8A086D9A1F7197F600951ABF /* models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = models.scnassets; sourceTree = "<group>"; };
-		8A086D9D1F7198D900951ABF /* ARPlaneAnchor+Visualize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ARPlaneAnchor+Visualize.swift"; sourceTree = "<group>"; };
 		8A086D9E1F7198D900951ABF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		8A086D9F1F7198D900951ABF /* SceneKitUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKitUtils.swift; sourceTree = "<group>"; };
-		8A086DA01F7198D900951ABF /* TrackingState+Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrackingState+Description.swift"; sourceTree = "<group>"; };
-		8A086DA51F719C2600951ABF /* PlaneDetectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaneDetectionViewController.swift; sourceTree = "<group>"; };
-		8A086DA61F719C2600951ABF /* PlaneDetection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaneDetection.storyboard; sourceTree = "<group>"; };
 		8A086DA91F71A08900951ABF /* VirtualObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectViewController.swift; sourceTree = "<group>"; };
 		8A086DAA1F71A08900951ABF /* VirtualObject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VirtualObject.storyboard; sourceTree = "<group>"; };
-		8A430D302020D11E00B646D3 /* ARSCNProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSCNProgramViewController.swift; sourceTree = "<group>"; };
-		8A430D322020D13200B646D3 /* ARSCNProgram.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARSCNProgram.storyboard; sourceTree = "<group>"; };
-		8A430D342020D15400B646D3 /* ARSCNProgramShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = ARSCNProgramShader.metal; sourceTree = "<group>"; };
-		8A783E532078D44B00B3A2D0 /* ShapedPlaneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapedPlaneViewController.swift; sourceTree = "<group>"; };
-		8A783E552078D46F00B3A2D0 /* ShapedPlane.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShapedPlane.storyboard; sourceTree = "<group>"; };
 		8A8921C61F718E040087C2B0 /* ARKit-Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8921C91F718E040087C2B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A8921CB1F718E040087C2B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,28 +53,7 @@
 		8A8921D51F718E040087C2B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A8921DB1F7190010087C2B0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8A8921DD1F7191370087C2B0 /* SampleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleDataSource.swift; sourceTree = "<group>"; };
-		8A9C49BC1F71ACAF00C8CB69 /* ARInteraction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARInteraction.storyboard; sourceTree = "<group>"; };
-		8A9C49BD1F71ACAF00C8CB69 /* ARInteractionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARInteractionViewController.swift; sourceTree = "<group>"; };
 		8A9C49C21F71B12D00C8CB69 /* VirtualObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectNode.swift; sourceTree = "<group>"; };
-		8A9C49C51F71B99900C8CB69 /* ARMeasure.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARMeasure.storyboard; sourceTree = "<group>"; };
-		8A9C49C61F71B99900C8CB69 /* ARMeasureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARMeasureViewController.swift; sourceTree = "<group>"; };
-		8A9C49CA1F71BF0500C8CB69 /* ARDrawing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARDrawing.storyboard; sourceTree = "<group>"; };
-		8A9C49CB1F71BF0500C8CB69 /* ARDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARDrawingViewController.swift; sourceTree = "<group>"; };
-		8A9C49CC1F71BF0500C8CB69 /* DynamicGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicGeometry.swift; sourceTree = "<group>"; };
-		8A9C49D11F71C5D900C8CB69 /* ARObjectDetection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARObjectDetection.storyboard; sourceTree = "<group>"; };
-		8A9C49D21F71C5D900C8CB69 /* ARObjectDetectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARObjectDetectionViewController.swift; sourceTree = "<group>"; };
-		8A9C49D31F71C5D900C8CB69 /* TagNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagNode.swift; sourceTree = "<group>"; };
-		8A9C49D81F71C65B00C8CB69 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
-		8A9C49DB1F71CD0D00C8CB69 /* ARMetal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARMetal.storyboard; sourceTree = "<group>"; };
-		8A9C49DC1F71CD0D00C8CB69 /* ARMetalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARMetalViewController.swift; sourceTree = "<group>"; };
-		8A9C49E01F71CD0D00C8CB69 /* MetalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalImageView.swift; sourceTree = "<group>"; };
-		8A9C49E61F71CEC600C8CB69 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		8AAECE131F7850D600C20BF9 /* ARMetalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMetalImageView.swift; sourceTree = "<group>"; };
-		8ADD3E771FF16CE500D988BD /* ARFaceSimple.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARFaceSimple.storyboard; sourceTree = "<group>"; };
-		8ADD3E781FF16CE500D988BD /* ARFaceSimpleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARFaceSimpleViewController.swift; sourceTree = "<group>"; };
-		8ADD3E7D1FF175AC00D988BD /* ARFaceNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFaceNode.swift; sourceTree = "<group>"; };
-		8AEDCA3D201F7BE100C56AF7 /* VerticalPlanesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalPlanesViewController.swift; sourceTree = "<group>"; };
-		8AEDCA3F201F7BFE00C56AF7 /* VerticalPlanes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerticalPlanes.storyboard; sourceTree = "<group>"; };
 		8FBAFB21E706B4A02B0EA992 /* Pods-ARKit-Sampler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKit-Sampler.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARKit-Sampler/Pods-ARKit-Sampler.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,18 +89,7 @@
 		8A086D951F71967800951ABF /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				8A9C49B71F71AC6600C8CB69 /* Simple */,
-				8A9C49B81F71AC7F00C8CB69 /* PlaneDetection */,
 				8A9C49BA1F71AC9100C8CB69 /* VirtualObject */,
-				8A9C49BB1F71ACAF00C8CB69 /* ARInteraction */,
-				8A9C49C41F71B99900C8CB69 /* ARMeasure */,
-				8A9C49C91F71BF0500C8CB69 /* ARDrawing */,
-				8A9C49D01F71C5D900C8CB69 /* ARObjectDetection */,
-				8A9C49DA1F71CD0D00C8CB69 /* ARMetal */,
-				8A430D2F2020D11E00B646D3 /* ARSCNProgram */,
-				8ADD3E761FF16CE500D988BD /* ARFaceSimple */,
-				8AEDCA3C201F7BE100C56AF7 /* VerticalPlanes */,
-				8A783E522078D44B00B3A2D0 /* ShapedPlane */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -162,39 +98,25 @@
 			isa = PBXGroup;
 			children = (
 				8A086D9E1F7198D900951ABF /* Common.swift */,
-				8A086D9D1F7198D900951ABF /* ARPlaneAnchor+Visualize.swift */,
 				8A086D9F1F7198D900951ABF /* SceneKitUtils.swift */,
-				8A086DA01F7198D900951ABF /* TrackingState+Description.swift */,
 				8A9C49C21F71B12D00C8CB69 /* VirtualObjectNode.swift */,
+				3DE2A833207E5CE200C3E6CE /* ARKit-Sampler-Bridging-Header.h */,
+				3DE2A838207FA8AE00C3E6CE /* SceneNodeManager.h */,
+				3DE2A839207FA8AE00C3E6CE /* SceneNodeManager.m */,
+				3D9B4A14208DFFD700D7E683 /* GamificationManager.h */,
+				3D9B4A15208DFFD700D7E683 /* GamificationManager.m */,
+				3D9B4A17208E061500D7E683 /* LocationManager.h */,
+				3D9B4A18208E061500D7E683 /* LocationManager.m */,
+				3D9B4A1A208E0E6200D7E683 /* GamificationTracker.h */,
 			);
 			path = common;
-			sourceTree = "<group>";
-		};
-		8A430D2F2020D11E00B646D3 /* ARSCNProgram */ = {
-			isa = PBXGroup;
-			children = (
-				8A430D342020D15400B646D3 /* ARSCNProgramShader.metal */,
-				8A430D302020D11E00B646D3 /* ARSCNProgramViewController.swift */,
-				8A430D322020D13200B646D3 /* ARSCNProgram.storyboard */,
-			);
-			path = ARSCNProgram;
-			sourceTree = "<group>";
-		};
-		8A783E522078D44B00B3A2D0 /* ShapedPlane */ = {
-			isa = PBXGroup;
-			children = (
-				8A783E532078D44B00B3A2D0 /* ShapedPlaneViewController.swift */,
-				8A783E552078D46F00B3A2D0 /* ShapedPlane.storyboard */,
-			);
-			path = ShapedPlane;
 			sourceTree = "<group>";
 		};
 		8A8921BD1F718E040087C2B0 = {
 			isa = PBXGroup;
 			children = (
+				3D9B4A122080CB6500D7E683 /* models.scnassets */,
 				8A086D9C1F7198D900951ABF /* common */,
-				8A9C49D71F71C65B00C8CB69 /* mlmodels */,
-				8A086D9A1F7197F600951ABF /* models.scnassets */,
 				8A8921C81F718E040087C2B0 /* ARKit-Sampler */,
 				8A8921C71F718E040087C2B0 /* Products */,
 				38046705730D58ABBFA12F52 /* Pods */,
@@ -227,24 +149,6 @@
 			path = "ARKit-Sampler";
 			sourceTree = "<group>";
 		};
-		8A9C49B71F71AC6600C8CB69 /* Simple */ = {
-			isa = PBXGroup;
-			children = (
-				8A086D981F7196A300951ABF /* SimpleViewController.swift */,
-				8A086D961F71968C00951ABF /* Simple.storyboard */,
-			);
-			path = Simple;
-			sourceTree = "<group>";
-		};
-		8A9C49B81F71AC7F00C8CB69 /* PlaneDetection */ = {
-			isa = PBXGroup;
-			children = (
-				8A086DA51F719C2600951ABF /* PlaneDetectionViewController.swift */,
-				8A086DA61F719C2600951ABF /* PlaneDetection.storyboard */,
-			);
-			path = PlaneDetection;
-			sourceTree = "<group>";
-		};
 		8A9C49BA1F71AC9100C8CB69 /* VirtualObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,91 +156,6 @@
 				8A086DAA1F71A08900951ABF /* VirtualObject.storyboard */,
 			);
 			path = VirtualObject;
-			sourceTree = "<group>";
-		};
-		8A9C49BB1F71ACAF00C8CB69 /* ARInteraction */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49BD1F71ACAF00C8CB69 /* ARInteractionViewController.swift */,
-				8A9C49BC1F71ACAF00C8CB69 /* ARInteraction.storyboard */,
-			);
-			path = ARInteraction;
-			sourceTree = "<group>";
-		};
-		8A9C49C41F71B99900C8CB69 /* ARMeasure */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49C61F71B99900C8CB69 /* ARMeasureViewController.swift */,
-				8A9C49C51F71B99900C8CB69 /* ARMeasure.storyboard */,
-			);
-			path = ARMeasure;
-			sourceTree = "<group>";
-		};
-		8A9C49C91F71BF0500C8CB69 /* ARDrawing */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49CB1F71BF0500C8CB69 /* ARDrawingViewController.swift */,
-				8A9C49CA1F71BF0500C8CB69 /* ARDrawing.storyboard */,
-				8A9C49CC1F71BF0500C8CB69 /* DynamicGeometry.swift */,
-			);
-			path = ARDrawing;
-			sourceTree = "<group>";
-		};
-		8A9C49D01F71C5D900C8CB69 /* ARObjectDetection */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49D21F71C5D900C8CB69 /* ARObjectDetectionViewController.swift */,
-				8A9C49D11F71C5D900C8CB69 /* ARObjectDetection.storyboard */,
-				8A9C49D31F71C5D900C8CB69 /* TagNode.swift */,
-			);
-			path = ARObjectDetection;
-			sourceTree = "<group>";
-		};
-		8A9C49D71F71C65B00C8CB69 /* mlmodels */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49D81F71C65B00C8CB69 /* Inceptionv3.mlmodel */,
-			);
-			path = mlmodels;
-			sourceTree = "<group>";
-		};
-		8A9C49DA1F71CD0D00C8CB69 /* ARMetal */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49E61F71CEC600C8CB69 /* Shaders.metal */,
-				8A9C49DC1F71CD0D00C8CB69 /* ARMetalViewController.swift */,
-				8A9C49DB1F71CD0D00C8CB69 /* ARMetal.storyboard */,
-				8AAECE131F7850D600C20BF9 /* ARMetalImageView.swift */,
-				8A9C49DE1F71CD0D00C8CB69 /* MetalImageView */,
-			);
-			path = ARMetal;
-			sourceTree = "<group>";
-		};
-		8A9C49DE1F71CD0D00C8CB69 /* MetalImageView */ = {
-			isa = PBXGroup;
-			children = (
-				8A9C49E01F71CD0D00C8CB69 /* MetalImageView.swift */,
-			);
-			path = MetalImageView;
-			sourceTree = "<group>";
-		};
-		8ADD3E761FF16CE500D988BD /* ARFaceSimple */ = {
-			isa = PBXGroup;
-			children = (
-				8ADD3E781FF16CE500D988BD /* ARFaceSimpleViewController.swift */,
-				8ADD3E771FF16CE500D988BD /* ARFaceSimple.storyboard */,
-				8ADD3E7D1FF175AC00D988BD /* ARFaceNode.swift */,
-			);
-			path = ARFaceSimple;
-			sourceTree = "<group>";
-		};
-		8AEDCA3C201F7BE100C56AF7 /* VerticalPlanes */ = {
-			isa = PBXGroup;
-			children = (
-				8AEDCA3D201F7BE100C56AF7 /* VerticalPlanesViewController.swift */,
-				8AEDCA3F201F7BFE00C56AF7 /* VerticalPlanes.storyboard */,
-			);
-			path = VerticalPlanes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +193,7 @@
 				TargetAttributes = {
 					8A8921C51F718E040087C2B0 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -401,22 +221,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ADD3E791FF16CE500D988BD /* ARFaceSimple.storyboard in Resources */,
 				8A086DAC1F71A08900951ABF /* VirtualObject.storyboard in Resources */,
 				8A8921D41F718E040087C2B0 /* LaunchScreen.storyboard in Resources */,
-				8A9C49D41F71C5D900C8CB69 /* ARObjectDetection.storyboard in Resources */,
-				8A9C49BF1F71ACAF00C8CB69 /* ARInteraction.storyboard in Resources */,
 				8A8921D11F718E040087C2B0 /* Assets.xcassets in Resources */,
-				8A9C49CD1F71BF0500C8CB69 /* ARDrawing.storyboard in Resources */,
-				8A430D332020D13200B646D3 /* ARSCNProgram.storyboard in Resources */,
-				8A086D971F71968C00951ABF /* Simple.storyboard in Resources */,
-				8A086DA81F719C2600951ABF /* PlaneDetection.storyboard in Resources */,
-				8A086D9B1F7197F700951ABF /* models.scnassets in Resources */,
-				8A783E562078D46F00B3A2D0 /* ShapedPlane.storyboard in Resources */,
+				3D9B4A132080CB6500D7E683 /* models.scnassets in Resources */,
 				8A8921CF1F718E040087C2B0 /* Main.storyboard in Resources */,
-				8AEDCA40201F7BFE00C56AF7 /* VerticalPlanes.storyboard in Resources */,
-				8A9C49C71F71B99900C8CB69 /* ARMeasure.storyboard in Resources */,
-				8A9C49E11F71CD0D00C8CB69 /* ARMetal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,36 +290,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AAECE141F7850D600C20BF9 /* ARMetalImageView.swift in Sources */,
-				8A9C49D51F71C5D900C8CB69 /* ARObjectDetectionViewController.swift in Sources */,
+				3D9B4A19208E061500D7E683 /* LocationManager.m in Sources */,
 				8A086DA31F7198D900951ABF /* SceneKitUtils.swift in Sources */,
 				8A086DAB1F71A08900951ABF /* VirtualObjectViewController.swift in Sources */,
 				8A8921CC1F718E040087C2B0 /* ViewController.swift in Sources */,
-				8A9C49C81F71B99900C8CB69 /* ARMeasureViewController.swift in Sources */,
-				8A9C49D91F71C65B00C8CB69 /* Inceptionv3.mlmodel in Sources */,
 				8A8921CA1F718E040087C2B0 /* AppDelegate.swift in Sources */,
-				8AEDCA3E201F7BE200C56AF7 /* VerticalPlanesViewController.swift in Sources */,
-				8A086DA11F7198D900951ABF /* ARPlaneAnchor+Visualize.swift in Sources */,
-				8ADD3E7E1FF175AC00D988BD /* ARFaceNode.swift in Sources */,
-				8A9C49E71F71CEC600C8CB69 /* Shaders.metal in Sources */,
-				8A9C49CE1F71BF0500C8CB69 /* ARDrawingViewController.swift in Sources */,
-				8A086D991F7196A300951ABF /* SimpleViewController.swift in Sources */,
-				8A9C49CF1F71BF0500C8CB69 /* DynamicGeometry.swift in Sources */,
-				8ADD3E7A1FF16CE500D988BD /* ARFaceSimpleViewController.swift in Sources */,
-				8A086DA71F719C2600951ABF /* PlaneDetectionViewController.swift in Sources */,
 				8A8921DE1F7191370087C2B0 /* SampleDataSource.swift in Sources */,
-				8A9C49D61F71C5D900C8CB69 /* TagNode.swift in Sources */,
-				8A783E542078D44B00B3A2D0 /* ShapedPlaneViewController.swift in Sources */,
-				8A430D352020D15400B646D3 /* ARSCNProgramShader.metal in Sources */,
 				8A086DA21F7198D900951ABF /* Common.swift in Sources */,
-				8A9C49E51F71CD0D00C8CB69 /* MetalImageView.swift in Sources */,
-				8A430D312020D11E00B646D3 /* ARSCNProgramViewController.swift in Sources */,
 				8A8921DC1F7190010087C2B0 /* RootViewController.swift in Sources */,
-				8A9C49C01F71ACAF00C8CB69 /* ARInteractionViewController.swift in Sources */,
+				3D9B4A16208DFFD700D7E683 /* GamificationManager.m in Sources */,
 				8A086D941F71941C00951ABF /* RootViewCell.swift in Sources */,
-				8A9C49E21F71CD0D00C8CB69 /* ARMetalViewController.swift in Sources */,
 				8A9C49C31F71B12D00C8CB69 /* VirtualObjectNode.swift in Sources */,
-				8A086DA41F7198D900951ABF /* TrackingState+Description.swift in Sources */,
+				3DE2A83A207FA8AE00C3E6CE /* SceneNodeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,14 +443,18 @@
 			baseConfigurationReference = 1F13E8C5860DBEF1BD063CF8 /* Pods-ARKit-Sampler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z86A4AWDE;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9T27KQBJ4X;
 				INFOPLIST_FILE = "ARKit-Sampler/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shu223.ARKit-Sampler";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.viewpnt.ARKit-Sampler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "common/ARKit-Sampler-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -670,14 +465,17 @@
 			baseConfigurationReference = 8FBAFB21E706B4A02B0EA992 /* Pods-ARKit-Sampler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z86A4AWDE;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9T27KQBJ4X;
 				INFOPLIST_FILE = "ARKit-Sampler/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shu223.ARKit-Sampler";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.viewpnt.ARKit-Sampler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "common/ARKit-Sampler-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

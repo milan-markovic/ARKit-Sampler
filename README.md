@@ -89,7 +89,6 @@ Rendering the virtual node's material with Metal shader using `SCNProgram`.
 
 Simplest Face-Based AR implementation.
 
-![](README_resources/face.gif)
 
 ### Vertical Plane Detection
 
@@ -104,7 +103,6 @@ A sample to show how to detect vertical planes.
 
 A sample to show how to detect irregularly shaped surfaces using ARSCNPlaneGeometry and ARPlaneGeometry.
 
-![](README_resources/irregular.gif)
 
 ### Coming soon...
 
