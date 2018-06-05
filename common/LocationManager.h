@@ -9,17 +9,16 @@
 #import <Foundation/Foundation.h>
 @import CoreLocation;
 #import "GamificationTracker.h"
+#import "InputEventObserver.h"
 
-@interface LocationManager : NSObject<GamificationTracker>
+@interface LocationManager : NSObject<GamificationTracker, InputEventObserver>
 
 +(LocationManager*) sharedManager;
 
 -(CLLocation*) getLocation;
 
-
-
 -(int32_t) getInputEventsCountForLocation:(CLLocation*) location withRadius:(int32_t) radius;
--(void) trackGamificationInputEvent:(CLLocation *)location;
--(void) trackGamificationOutputEvent:(CLLocation *)location;
+
+-(void) onInputEvent:(NSUUID*) eventId type:(GamificationInputType)inputType;
 
 @end

@@ -10,11 +10,14 @@
 		3D9B4A132080CB6500D7E683 /* models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9B4A122080CB6500D7E683 /* models.scnassets */; };
 		3D9B4A16208DFFD700D7E683 /* GamificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B4A15208DFFD700D7E683 /* GamificationManager.m */; };
 		3D9B4A19208E061500D7E683 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B4A18208E061500D7E683 /* LocationManager.m */; };
+		3DAAE63120C16E7200B36E20 /* GamificationObjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAE63020C16E7200B36E20 /* GamificationObjectRepository.m */; };
+		3DAAE63420C172A800B36E20 /* GamificationDataRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAAE63320C172A800B36E20 /* GamificationDataRepository.m */; };
+		3DD1631B20C6A67600C47EAB /* GamificationAnchorRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1631A20C6A67600C47EAB /* GamificationAnchorRepository.m */; };
 		3DE2A83A207FA8AE00C3E6CE /* SceneNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2A839207FA8AE00C3E6CE /* SceneNodeManager.m */; };
+		3DFDE56E20C6CA2D000FF659 /* GamificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFDE56D20C6CA2D000FF659 /* GamificationModel.m */; };
 		4F5AA0984FD0409AEB73AC4E /* Pods_ARKit_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6FA6DDC58BD46FBC840EC1 /* Pods_ARKit_Sampler.framework */; };
 		8A086D941F71941C00951ABF /* RootViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D931F71941C00951ABF /* RootViewCell.swift */; };
 		8A086DA21F7198D900951ABF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D9E1F7198D900951ABF /* Common.swift */; };
-		8A086DA31F7198D900951ABF /* SceneKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086D9F1F7198D900951ABF /* SceneKitUtils.swift */; };
 		8A086DAB1F71A08900951ABF /* VirtualObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A086DA91F71A08900951ABF /* VirtualObjectViewController.swift */; };
 		8A086DAC1F71A08900951ABF /* VirtualObject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A086DAA1F71A08900951ABF /* VirtualObject.storyboard */; };
 		8A8921CA1F718E040087C2B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921C91F718E040087C2B0 /* AppDelegate.swift */; };
@@ -24,7 +27,6 @@
 		8A8921D41F718E040087C2B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8921D21F718E040087C2B0 /* LaunchScreen.storyboard */; };
 		8A8921DC1F7190010087C2B0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921DB1F7190010087C2B0 /* RootViewController.swift */; };
 		8A8921DE1F7191370087C2B0 /* SampleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8921DD1F7191370087C2B0 /* SampleDataSource.swift */; };
-		8A9C49C31F71B12D00C8CB69 /* VirtualObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C49C21F71B12D00C8CB69 /* VirtualObjectNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,13 +37,23 @@
 		3D9B4A17208E061500D7E683 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		3D9B4A18208E061500D7E683 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		3D9B4A1A208E0E6200D7E683 /* GamificationTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationTracker.h; sourceTree = "<group>"; };
+		3DAAE62C20C01DA000B36E20 /* InputEventObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputEventObserver.h; sourceTree = "<group>"; };
+		3DAAE62D20C03F7600B36E20 /* OutputEventObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutputEventObserver.h; sourceTree = "<group>"; };
+		3DAAE62E20C04CBD00B36E20 /* EventObjectObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventObjectObserver.h; sourceTree = "<group>"; };
+		3DAAE62F20C16E7200B36E20 /* GamificationObjectRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationObjectRepository.h; sourceTree = "<group>"; };
+		3DAAE63020C16E7200B36E20 /* GamificationObjectRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamificationObjectRepository.m; sourceTree = "<group>"; };
+		3DAAE63220C172A800B36E20 /* GamificationDataRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationDataRepository.h; sourceTree = "<group>"; };
+		3DAAE63320C172A800B36E20 /* GamificationDataRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamificationDataRepository.m; sourceTree = "<group>"; };
+		3DD1631920C6A67600C47EAB /* GamificationAnchorRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationAnchorRepository.h; sourceTree = "<group>"; };
+		3DD1631A20C6A67600C47EAB /* GamificationAnchorRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamificationAnchorRepository.m; sourceTree = "<group>"; };
 		3DE2A833207E5CE200C3E6CE /* ARKit-Sampler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKit-Sampler-Bridging-Header.h"; sourceTree = "<group>"; };
 		3DE2A838207FA8AE00C3E6CE /* SceneNodeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneNodeManager.h; sourceTree = "<group>"; };
 		3DE2A839207FA8AE00C3E6CE /* SceneNodeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneNodeManager.m; sourceTree = "<group>"; };
+		3DFDE56C20C6CA2D000FF659 /* GamificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamificationModel.h; sourceTree = "<group>"; };
+		3DFDE56D20C6CA2D000FF659 /* GamificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamificationModel.m; sourceTree = "<group>"; };
 		7B6FA6DDC58BD46FBC840EC1 /* Pods_ARKit_Sampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARKit_Sampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A086D931F71941C00951ABF /* RootViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewCell.swift; sourceTree = "<group>"; };
 		8A086D9E1F7198D900951ABF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		8A086D9F1F7198D900951ABF /* SceneKitUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKitUtils.swift; sourceTree = "<group>"; };
 		8A086DA91F71A08900951ABF /* VirtualObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualObjectViewController.swift; sourceTree = "<group>"; };
 		8A086DAA1F71A08900951ABF /* VirtualObject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VirtualObject.storyboard; sourceTree = "<group>"; };
 		8A8921C61F718E040087C2B0 /* ARKit-Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +65,6 @@
 		8A8921D51F718E040087C2B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A8921DB1F7190010087C2B0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8A8921DD1F7191370087C2B0 /* SampleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleDataSource.swift; sourceTree = "<group>"; };
-		8A9C49C21F71B12D00C8CB69 /* VirtualObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectNode.swift; sourceTree = "<group>"; };
 		8FBAFB21E706B4A02B0EA992 /* Pods-ARKit-Sampler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKit-Sampler.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARKit-Sampler/Pods-ARKit-Sampler.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +97,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3DD1631C20C6A77A00C47EAB /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3DAAE62F20C16E7200B36E20 /* GamificationObjectRepository.h */,
+				3DAAE63020C16E7200B36E20 /* GamificationObjectRepository.m */,
+				3DAAE63220C172A800B36E20 /* GamificationDataRepository.h */,
+				3DAAE63320C172A800B36E20 /* GamificationDataRepository.m */,
+				3DD1631920C6A67600C47EAB /* GamificationAnchorRepository.h */,
+				3DD1631A20C6A67600C47EAB /* GamificationAnchorRepository.m */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		3DD1631D20C6A7AD00C47EAB /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				3DAAE62C20C01DA000B36E20 /* InputEventObserver.h */,
+				3DAAE62D20C03F7600B36E20 /* OutputEventObserver.h */,
+				3DAAE62E20C04CBD00B36E20 /* EventObjectObserver.h */,
+			);
+			name = Observers;
+			sourceTree = "<group>";
+		};
+		3DD1631E20C6C9DF00C47EAB /* SceneModels */ = {
+			isa = PBXGroup;
+			children = (
+				3DFDE56C20C6CA2D000FF659 /* GamificationModel.h */,
+				3DFDE56D20C6CA2D000FF659 /* GamificationModel.m */,
+			);
+			name = SceneModels;
+			path = common;
+			sourceTree = "<group>";
+		};
 		8A086D951F71967800951ABF /* Samples */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,8 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				8A086D9E1F7198D900951ABF /* Common.swift */,
-				8A086D9F1F7198D900951ABF /* SceneKitUtils.swift */,
-				8A9C49C21F71B12D00C8CB69 /* VirtualObjectNode.swift */,
 				3DE2A833207E5CE200C3E6CE /* ARKit-Sampler-Bridging-Header.h */,
 				3DE2A838207FA8AE00C3E6CE /* SceneNodeManager.h */,
 				3DE2A839207FA8AE00C3E6CE /* SceneNodeManager.m */,
@@ -115,6 +157,9 @@
 		8A8921BD1F718E040087C2B0 = {
 			isa = PBXGroup;
 			children = (
+				3DD1631E20C6C9DF00C47EAB /* SceneModels */,
+				3DD1631D20C6A7AD00C47EAB /* Observers */,
+				3DD1631C20C6A77A00C47EAB /* Repositories */,
 				3D9B4A122080CB6500D7E683 /* models.scnassets */,
 				8A086D9C1F7198D900951ABF /* common */,
 				8A8921C81F718E040087C2B0 /* ARKit-Sampler */,
@@ -291,16 +336,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9B4A19208E061500D7E683 /* LocationManager.m in Sources */,
-				8A086DA31F7198D900951ABF /* SceneKitUtils.swift in Sources */,
 				8A086DAB1F71A08900951ABF /* VirtualObjectViewController.swift in Sources */,
 				8A8921CC1F718E040087C2B0 /* ViewController.swift in Sources */,
+				3DD1631B20C6A67600C47EAB /* GamificationAnchorRepository.m in Sources */,
+				3DFDE56E20C6CA2D000FF659 /* GamificationModel.m in Sources */,
 				8A8921CA1F718E040087C2B0 /* AppDelegate.swift in Sources */,
 				8A8921DE1F7191370087C2B0 /* SampleDataSource.swift in Sources */,
 				8A086DA21F7198D900951ABF /* Common.swift in Sources */,
 				8A8921DC1F7190010087C2B0 /* RootViewController.swift in Sources */,
 				3D9B4A16208DFFD700D7E683 /* GamificationManager.m in Sources */,
 				8A086D941F71941C00951ABF /* RootViewCell.swift in Sources */,
-				8A9C49C31F71B12D00C8CB69 /* VirtualObjectNode.swift in Sources */,
+				3DAAE63420C172A800B36E20 /* GamificationDataRepository.m in Sources */,
+				3DAAE63120C16E7200B36E20 /* GamificationObjectRepository.m in Sources */,
 				3DE2A83A207FA8AE00C3E6CE /* SceneNodeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

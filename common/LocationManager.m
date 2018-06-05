@@ -11,21 +11,34 @@
 @implementation LocationManager
 
 
+#pragma mark Singleton Methods
 
++ (id)sharedManager {
+    static LocationManager *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc] init];
+    });
+    return sharedMyManager;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        [[GamificationManager sharedManager] registerInputObserver:self];
+    }
+    return self;
+}
 
 
 #pragma mark - GamificationTracker methods
 
 -(int32_t) getInputEventsCountForLocation:(CLLocation*) location withRadius:(int32_t) radius {
-    
+    return 0;
 }
 
-- (void)trackGamificationInputEvent:(CLLocation *)location {
-    
-}
+#pragma mark - InputEventObserver methods
 
--(void) trackGamificationOutputEvent:(CLLocation *)location {
-    
+- (void) onInputEvent:(NSUUID*) eventId type:(GamificationInputType)inputType{
     
 }
 

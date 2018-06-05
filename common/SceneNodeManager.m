@@ -8,19 +8,23 @@
 
 #import "SceneNodeManager.h"
 #import "GamificationManager.h"
+#import "GamificationObjectRepository.h"
+#import "GamificationAnchorRepository.h"
+#import "GamificationDataRepository.h"
+#import "GamificationModel.h"
+
 
 const int32_t FEATURE_POINTS_COUNT_TRESHOLD = 50;
 
-const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
+const int32_t SCENE_UPDATE_INTERVAL = 2; //sec
 
-@interface NodeData : NSObject
-@property int gamified;
 
-@end
+
 
 @implementation SceneNodeManager  {
-    NSMutableDictionary<NSUUID*, NSDictionary*>* nodes;
-    NSMutableDictionary<NSUUID*, NodeData*>* nodeData;
+    NSMutableArray<id<EventObjectObserver>>* observers;
+    
+    
     
     NSMutableDictionary<NSNumber*, NSValue*>* featurePoints;
     NSMutableDictionary<NSNumber*, NSValue*>* featurePointsBuffer;
@@ -34,6 +38,7 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
     int32_t featurePointsCounter;
     
     NSTimeInterval lastUpdateAtTime;
+      
     
 }
 
@@ -52,11 +57,11 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
 
 - (id)init {
     if (self = [super init]) {
-        nodes = [[NSMutableDictionary alloc] init];
-        nodeData = [[NSMutableDictionary alloc] init];
         
         featurePoints = [[NSMutableDictionary alloc] init];
         featurePointsBuffer = [[NSMutableDictionary alloc] init];
+        
+        observers = [NSMutableArray new];
         
         debugMode = 1;
         
@@ -65,9 +70,13 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
         lastStep = 0;
         
         featurePointsCounter = 0;
+        
+        [[GamificationManager sharedManager] registerInputObserver:self];
+        [[GamificationManager sharedManager] registerOutputObserver:self];
     }
     return self;
 }
+
 
 
 #pragma mark - SceneViewDelegate methods
@@ -86,96 +95,189 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
 }
 - (void)renderer:(id<SCNSceneRenderer>)renderer didRemoveNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
     NSLog(@"didRemoveNode");
-    [nodes removeObjectForKey:anchor.identifier];
+    [GamificationAnchorRepository removeNode:anchor.identifier];
     
 }
 - (void)renderer:(id<SCNSceneRenderer>)renderer didAddNode:(SCNNode *)node forAnchor:(ARAnchor *)anchor {
     ARPlaneAnchor* planeAnchor = (ARPlaneAnchor*)anchor;
-    NSDictionary* group = [NSDictionary dictionaryWithObjects:@[node, planeAnchor] forKeys:@[@"node", @"planeAnchor"]];
-    [nodes setObject:group forKey:anchor.identifier];
+    [GamificationAnchorRepository setNode:node andAnchor:planeAnchor forKey:planeAnchor.identifier];
     NSLog(@"didAddNode");
-    
-    
-    
-    if(debugMode){
-        
-    }
 }
 
 - (void)renderer:(id<SCNSceneRenderer>)renderer updateAtTime:(NSTimeInterval)time {
+    //NSLog(@"updateAtTime %lf", time);
     if(!lastUpdateAtTime){
         lastUpdateAtTime = time;
     }
     if(lastUpdateAtTime + SCENE_UPDATE_INTERVAL < time) {
-        GamificationInputType inputType = [[GamificationManager sharedManager] handleUpdate];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self handleGamificationInput:inputType];
-        });
+        [[GamificationManager sharedManager] handleUpdate];
+        lastUpdateAtTime = time;
     }
 }
 
 #pragma mark - ARSessionDelegate methods
 
 - (void)session:(ARSession *)session didUpdateFrame:(ARFrame *)frame {
-    ARPointCloud* rawFeaturePoints = frame.rawFeaturePoints;
-//    [self handleFeaturePoints:rawFeaturePoints];
+    //ARPointCloud* rawFeaturePoints = frame.rawFeaturePoints;
+    //[self handleFeaturePoints:rawFeaturePoints];
+}
+
+#pragma mark - InputEventObserver methods
+
+- (void) onInputEvent:(NSUUID*) eventId type:(GamificationInputType)inputType{
+    [self handleInputEvent:eventId type:inputType];
+}
+
+#pragma mark - OutputEventObserver methods
+
+-(void) onOutputEvent:(NSUUID *)eventId{
+    [self handleOutputEvent:eventId];
+}
+
+
+#pragma mark - public methods
+
+-(void) registerEventObjectObserver:(id<EventObjectObserver>) observer{
+    [observers addObject:observer];
+}
+
+-(void) notifyObservers:(NSUUID*) eventId{
+    for (id<EventObjectObserver> observer in observers) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            @try{
+                [observer onEventObjectClick:eventId];
+            } @catch(NSException* e){
+                NSLog(@"Exception occured in observer: %@" , [e description]);
+            }
+        });
+    }
+}
+
+#pragma mark - Touch observer
+
+-(void) touchesBegan:(NSSet<UITouch*>*)touches with:(UIEvent*) event{
+    UITouch* touch = [touches allObjects][0];
+    CGPoint touchLocation = [touch locationInView:sceneView];
+    
+    NSArray<SCNHitTestResult*>* results = [sceneView hitTest:touchLocation options:nil];
+    for (SCNHitTestResult* hitResult in results) {
+        SCNNode* hitNode = [hitResult node];
+        for (NSUUID* uuid in [GamificationObjectRepository getAll]) {
+            SCNNode* eventNode = [GamificationObjectRepository getGamificationNodeForId:uuid];
+            for (SCNNode* childNode in [eventNode childNodes]) {
+                if(childNode == hitNode){
+                    [self handleEventNodeTouch:uuid];
+                }
+            }
+        }
+    }
+    
 }
 
 
 #pragma mark - private methods
 
+-(void) handleEventNodeTouch:(NSUUID*) uuid{
+    NSLog(@"duck touch %@", uuid);
+    
+    [self notifyObservers:uuid];
+}
 
--(void) handleGamificationInput:(GamificationInputType) inputType{
+-(void) handleOutputEvent:(NSUUID*)eventId {
+    NSLog(@"handleOutputEvent %@", eventId);
+    SCNNode* node = [GamificationObjectRepository getGamificationNodeForId:eventId];
+    NSLog(@"handleOutputEvent node %@", node);
+    [node removeFromParentNode];
+}
+
+-(void) handleInputEvent:(NSUUID*)eventId type:(GamificationInputType) inputType{
+    SCNNode* node;
     switch (inputType) {
         case INPUT_TYPE_USE_PLANES:
-            [self addGamificationInput];
+            node = [self addGamificationInput];
             break;
         case INPUT_TYPE_USE_AIR:
-            [self addGamificationInputForVector:SCNVector3Zero];
+            node = [self addGamificationInputForVector:SCNVector3Zero];
         default:
             break;
     }
-}
-
--(void) addGamificationInput{
-    SCNVector3 vector = SCNVector3Zero;
-    //find node
-    for (NodeData* data in nodeData) {
-        if(data.gamified == 0){
-            NSUUID* uuid = [nodeData allKeysForObject:data][0];
-            ARPlaneAnchor* planeAnchor = (ARPlaneAnchor*)[[nodes objectForKey:uuid] objectForKey:@"planeAnchor"];
-            
-            vector_float3 center = [planeAnchor center];
-            vector = SCNVector3FromFloat3(center);
-            break;
-        }
+    
+    if(node != nil){
+        [GamificationObjectRepository setGamificationNode:node forId:eventId];
     }
-    [self addGamificationInputForVector:vector];
 }
 
--(void) addGamificationInputForVector:(SCNVector3)vector{
+-(SCNNode*) addGamificationInput{
+    NSLog(@"addGamificationInput");
+    SCNVector3 vector = SCNVector3Zero;
+
+    NSUUID* uuid = [GamificationAnchorRepository getAvailableAnchorIdentifier];
+    if(uuid != nil){
+        GamificationAnchorEntry* anchorEntry = [GamificationAnchorRepository getEntryForIdentifier:uuid];
+        GamificationDataEntry* dataEntry;
+        if((dataEntry = [GamificationDataRepository getEntryForIdentifier:uuid]) == nil){
+            dataEntry = [GamificationDataEntry new];
+            dataEntry.gamified = 1;
+            [GamificationDataRepository setEntry:dataEntry ForIdentifier:uuid];
+        } else {
+            dataEntry.gamified = 1;
+        }
+        
+        vector = [anchorEntry getSCNVector3Location];
+    }
+    
+    return [self addGamificationInputForVector:vector];
+}
+
+-(SCNNode*) addGamificationInputForVector:(SCNVector3)vector{
+    NSLog(@"handleGamificationInput %f %f %f", vector.x, vector.y, vector.z);
     if(SCNVector3EqualToVector3(SCNVector3Zero, vector)){
         //find random location
-        SCNVector3 newVector = SCNVector3Make(rand()*3, rand()*3, (rand()*5) + 1);
-        [self addScene:[self getSceneModelForGamification] forVector:newVector];
+        int i = 0;
+        int lowerBound = 0;
+        unsigned long upperBound = [featurePoints count];
+        int rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
+        unsigned int objNo = rndValue;
+        SCNVector3 point = SCNVector3Zero;
+        for (NSNumber* identifier in featurePoints) {
+            i++;
+            if(i == objNo) {
+                NSValue *value = featurePoints[identifier] ;
+                [value getValue:&point];
+                break;
+            }
+        }
+        SCNVector3 newVector;
+        if(!SCNVector3EqualToVector3(SCNVector3Zero, point)){
+            newVector  = point;
+        } else {
+            newVector = SCNVector3Make([self randomFloatBetween:0 and:2] - 1, [self randomFloatBetween:0 and:2] - 1, [self randomFloatBetween:0 and:2] - 1);
+        }
+        
+        return [self addScene:[self getNodeModelForGamification] forVector:newVector];
     } else {
-        [self addScene:[self getSceneModelForGamification] forVector:vector];
+        return [self addScene:[self getNodeModelForGamification] forVector:vector];
     }
 }
 
 
--(void) addScene:(SCNScene*) scene forVector:(SCNVector3)vector{
-    SCNNode* node = [[SCNNode alloc] init];
-    [node addChildNode:[scene rootNode]];
+-(SCNNode*) addScene:(SCNNode*) node forVector:(SCNVector3)vector{
+    
     node.position = vector;
     [sceneView.scene.rootNode addChildNode:node];
+//    [sceneView.scene.rootNode addAnimation:[SCNAnimation animationWithCAAnimation:animation] forKey:@"bottle"];
+    return node;
 }
 
--(SCNScene*) getSceneModelForGamification{
-    SCNScene* duck = [SCNScene sceneNamed:@"duck.scn" inDirectory:@"models.scnassets/duck" options:nil];
-    return duck;
+-(SCNNode*) getNodeModelForGamification{
+    return [GamificationModel new];
 }
 
+
+- (float)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
+    float diff = bigNumber - smallNumber;
+    return (((float) (arc4random() % ((unsigned)RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
+}
 
 #pragma mark - Feature points
 
@@ -197,20 +299,21 @@ const int32_t SCENE_UPDATE_INTERVAL = 200; //ms
        ){
         //dont draw point
         if(debugMode){
-            NSLog(@"didnt draw point");
+            //NSLog(@"didnt draw point");
             //[[[[node geometry] firstMaterial] diffuse] setContents:[UIColor colorWithRed:0.1 green:0.3 blue:0.8 alpha:1]];
         }
         
     } else {
         if(debugMode){
-            [sceneView.scene.rootNode addChildNode:[self getNodeForFeaturePoint:point]];
+            //[sceneView.scene.rootNode addChildNode:[self getNodeForFeaturePoint:point]];
         }
         if([featurePointsBuffer count] > FEATURE_POINTS_COUNT_TRESHOLD) {
             [featurePoints addEntriesFromDictionary:featurePointsBuffer];
-            [self analyzeFeaturePoints];
+            //[self analyzeFeaturePoints];
             [featurePointsBuffer removeAllObjects];
         } else {
-            [featurePointsBuffer setObject:[NSValue valueWithPointer:&point] forKey:@(identifier)];
+            NSValue *value = [NSValue valueWithBytes:&point objCType:@encode(SCNVector3)];
+            [featurePointsBuffer setObject:value forKey:@(identifier)];
             NSLog(@"%05f, %05f, %05f", point.x, point.y, point.z);
         }
         

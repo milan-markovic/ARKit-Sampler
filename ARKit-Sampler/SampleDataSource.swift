@@ -24,8 +24,8 @@ struct Sample {
 struct SampleDataSource {
     let samples = [
         Sample(
-            title: "Virtual Object",
-            detail: "A sample to show how to add a virtual object to a detected plane.",
+            title: "BrandGo",
+            detail: "BrandGo",
             classPrefix: "VirtualObject"
         )
         ]

@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 @import ARKit;
 
+
+extern const int32_t FEATURE_POINTS_COUNT_TRESHOLD;
+
+extern const int32_t SCENE_UPDATE_INTERVAL;
+
+@protocol InputEventObserver;
+@protocol OutputEventObserver;
+#import "EventObjectObserver.h"
+
 typedef enum : NSUInteger {
     INPUT_TYPE_USE_PLANES,
     INPUT_TYPE_USE_AIR,
@@ -17,10 +26,13 @@ typedef enum : NSUInteger {
 } GamificationInputType;
 
 
-@interface GamificationManager : NSObject
+@interface GamificationManager : NSObject<EventObjectObserver>
 
 + (GamificationManager*)sharedManager;
 
 
 -(GamificationInputType) handleUpdate;
+-(void) registerInputObserver:(id<InputEventObserver>) observer;
+-(void) registerOutputObserver:(id<OutputEventObserver>) observer;
+
 @end

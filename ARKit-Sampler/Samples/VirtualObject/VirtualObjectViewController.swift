@@ -19,7 +19,7 @@ class VirtualObjectViewController: UIViewController {
         sceneView.session.delegate = SceneNodeManager.shared()
         SceneNodeManager.shared().sceneView = sceneView
         sceneView.scene = SCNScene()        
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        sceneView.debugOptions = [];// [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,5 +31,10 @@ class VirtualObjectViewController: UIViewController {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        SceneNodeManager.shared().touchesBegan(touches, with:event);
+    }
+    
 }
 

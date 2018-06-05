@@ -16,8 +16,6 @@
 
 -(void) getInputEventsCountForLocation:(CLLocation*) location withRadius:(int32_t) radius;
 
--(void) trackGamificationInputEvent:(CLLocation*) location;
--(void) trackGamificationOutputEvent:(CLLocation*) location;
 
 @end
 
